@@ -1,3 +1,7 @@
+'''
+Given two strings, write a method to decide if one is a permutation of the other.
+'''
+
 s1 = input()
 s2 = input()
 
