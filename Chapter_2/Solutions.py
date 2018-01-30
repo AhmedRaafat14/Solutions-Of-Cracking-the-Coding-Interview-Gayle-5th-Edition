@@ -1,5 +1,6 @@
 
 from Chapter_2.SingleLinkedList import UnorderedList as UnList
+from Chapter_2.Node import Node
 
 '''
 Write code to remove duplicates from an unsorted linked list.
@@ -107,9 +108,133 @@ def p_2_4():
     print ( "After:" )
     print ( *myList.traverse ( ) , sep='--->' )
 
+'''
+You have two numbers represented by a linked list, 
+where each node contains a single digit. The digits are stored 
+in reverse order, such that the Ts digit is at the head of the list.
+Write a function that adds the two numbers and returns the sum 
+    as a linked list.
+EXAMPLE:
+    Input: (7-> 1 -> 6) + (5 -> 9 -> 2).That is, 617 + 295.
+    Output: 2 -> 1 -> 9.That is, 912.
+'''
+def p_2_5_v1():  # in reversed order
+    num1 = UnList()
+    # use push function to put digit in the first of list.
+    num1.push(6)
+    num1.push(1)
+    num1.push(7)
+
+    # print('number 1:')
+    print(*num1.traverse(), sep='--->')
+
+    num2 = UnList ( )
+    # use push function to put digit in the first of list.
+    num2.push ( 2 )
+    num2.push ( 9 )
+    num2.push ( 5 )
+
+    res = sum_lists(num1, num2)
+    li = []
+    while res:
+        li.append(str(res.getData()))
+        res = res.getNext()
+
+    print(*li, sep='--->')
+
+    # print ( 'number 2:' )
+    print ( *num2.traverse ( ) , sep='--->' )
+
+    # now we have two nubers in reversed order so firs of all get each number
+    # digits in one integer number if we just leav as it traversed will be
+    # in wrong order like for 617 will be 716 so to reverse it use reversed
+    # function implmented in linked list class
+    # num1.reverse()
+    # num2.reverse()
+    # number1 = int( "".join(map(str, num1.traverse())) )
+    # number2 = int( "".join(map(str, num2.traverse())) )
+    #
+    # print("=====================================")
+    #
+    # print(number1, number2)
+    #
+    # s_n_1_2 = number1 + number2
+    # print("number1 + number 2 = " + str(s_n_1_2))
+    #
+    # # now store it in linked list reversed to be 912 ==> 219
+    # result = UnList()
+    # for digit in str(s_n_1_2):
+    #     result.push(digit)
+    #
+    # print("Result:")
+    # print(*result.traverse(), sep="--->")
+
+    return
+
+def p_2_5_v2():  # in normal order
+    num1 = UnList()
+    # use push function to put digit in the first of list.
+    num1.append(6)
+    num1.append(1)
+    num1.append(7)
+
+    # print('number 1:')
+    print(*num1.traverse(), sep='--->')
+
+    num2 = UnList ( )
+    # use push function to put digit in the first of list.
+    num2.append ( 2 )
+    num2.append ( 9 )
+    num2.append ( 5 )
+
+    # print ( 'number 2:' )
+    print ( *num2.traverse ( ) , sep='--->' )
+
+    # now we have two nubers in reversed order so firs of all get each number
+    # digits in one integer number
+    number1 = int( "".join(map(str, num1.traverse())) )
+    number2 = int( "".join(map(str, num2.traverse())) )
+
+    # print("=====================================")
+    #
+    # print(number1, number2)
+    #
+    s_n_1_2 = number1 + number2
+    # print("number1 + number 2 = " + str(s_n_1_2))
+    #
+    # now store it in linked list
+    result = UnList()
+    for digit in str(s_n_1_2):
+        result.append(digit)
+
+    print("Result:")
+    print(*result.traverse(), sep="--->")
+
+def sum_lists(num1, num2):
+    node1, node2 = num1.head, num2.head
+    carry = 0
+    result_head, result_node = None, None
+    while node1 or node2 or carry:
+        value = carry
+        if node1:
+          value += node1.getData()
+          node1 = node1.getNext()
+        if node2:
+          value += node2.getData()
+          node2 = node2.getNext()
+        if result_node:
+          result_node.setNext( Node(value % 10) )
+          result_node = result_node.getNext()
+        else:
+          result_node = Node(value % 10)
+          result_head = result_node
+        carry = value // 10
+    return result_head
 
 if __name__ == "__main__":
     # p_2_1()
     # p_2_2()
     # p_2_3()
-    p_2_4()
+    # p_2_4()
+    # p_2_5_v1()
+    p_2_5_v2()
