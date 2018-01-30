@@ -18,7 +18,8 @@
                 16- Traverse()
 """
 
-from Node import DNode as Node
+# from Node import DNode as Node
+from Chapter_2.Node import DNode as Node
 
 class DoubleLinkedList:
     def __init__(self):

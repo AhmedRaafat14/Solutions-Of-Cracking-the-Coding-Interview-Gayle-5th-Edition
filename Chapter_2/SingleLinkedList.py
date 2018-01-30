@@ -30,7 +30,8 @@
     using Node class
 '''
 
-from Node import Node
+# from Node import Node
+from Chapter_2.Node import Node
 
 
 class UnorderedList:
