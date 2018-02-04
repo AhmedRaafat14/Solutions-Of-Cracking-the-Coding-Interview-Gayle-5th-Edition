@@ -254,6 +254,39 @@ def p_2_6():
     print( circ.findStartOfLoop() )
     return
 
+'''
+Implement a function to check if a linked list is a palindrome
+'''
+def p_2_7():
+    myList = UnList ( )
+    myList.append ( 1 )
+    myList.append ( 2 )
+    myList.append ( 3 )
+    myList.append ( 4 )
+    myList.append ( 3 )
+    myList.append ( 2 )
+    myList.append ( 1 )
+
+    # myListRevesed = myList
+    #
+    # myListRevesed.reverse()
+    #
+    # l1 = myList.traverse()
+    # l2 = myListRevesed.traverse()
+    #
+    # error = False
+    # for i in range( (len(l1) // 2) + 1 ):
+    #     if l1[i] != l2[i]:
+    #         error = True
+    #         break
+    #
+    # print(not error)
+    print(myList.isPalindrome())
+
+    # print ( *myList.traverse ( ) , sep='--->' )
+    # print ( *myListRevesed.traverse ( ) , sep='--->' )
+
+
 if __name__ == "__main__":
     # p_2_1()
     # p_2_2()
@@ -261,4 +294,5 @@ if __name__ == "__main__":
     # p_2_4()
     # p_2_5_v1()
     # p_2_5_v2()
-    p_2_6()
+    # p_2_6()
+    p_2_7()

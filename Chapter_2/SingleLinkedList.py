@@ -259,6 +259,42 @@ class UnorderedList:
 
         self.head = prev
 
+    # this to take copy from list
+    def copy(self, node_cpy):
+        if node_cpy:
+            nd =  Node ( node_cpy.getData() )
+            nd.setNext(node_cpy.getNext())
+            return nd
+        else:
+            return None
+
+    # reverse copied list
+    def cpy_reverse(self):
+        current = self.copy(self.head)
+        prev = None
+        nex = current.getNext ( )
+        while current:
+            current.setNext ( prev )
+
+            prev = current
+            current = self.copy(nex)
+            if nex:
+                nex = nex.getNext ( )
+
+        return prev
+
+    # This to check if list is palindrom or not
+    def isPalindrome(self):
+        forward, backword = self.head, self.cpy_reverse()
+
+        while forward:
+            if forward.getData() != backword.getData():
+                return False
+            forward = forward.getNext()
+            backword = backword.getNext()
+
+        return True
+
     # This function to remove Duplcates from list using Hashing
     def removeDuplicates(self):
         """
@@ -371,7 +407,7 @@ class UnorderedList:
             else:
                 current = self.head
 
-    # tis to find the start of looping in list
+    # this to find the start of looping in list
     def findStartOfLoop(self):
         """
         :return: node data 
