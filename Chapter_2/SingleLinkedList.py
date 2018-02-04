@@ -347,7 +347,7 @@ class UnorderedList:
         self.head = smaller_h
         return
 
-
+    # this to sort list in asc order
     def sort(self):
         current = self.head
 
@@ -371,8 +371,20 @@ class UnorderedList:
             else:
                 current = self.head
 
+    # tis to find the start of looping in list
+    def findStartOfLoop(self):
+        """
+        :return: node data 
+        """
+        nodes = {}
+        current = self.head
+        while current:
+            if current.getData() in nodes:
+                return current.getData()
+            nodes[current.getData()] = True
+            current = current.getNext()
 
-
+        return None
 
 class OrderedList:
     # initalize the list with head = None

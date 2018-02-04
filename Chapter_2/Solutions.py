@@ -231,10 +231,34 @@ def sum_lists(num1, num2):
         carry = value // 10
     return result_head
 
+'''
+Given a circular linked list, implement an algorithm which 
+returns the node at the beginning of the loop.
+DEFINITION
+    Circular linked list: A (corrupt) linked list in which a node's 
+            next pointer points to an earlier node, 
+            so as to make a loop in the linked list.
+EXAMPLE:
+    Input: A - > B - > C - > D - > E - > C [the same C as earlier]
+    Output: C
+'''
+def p_2_6():
+    circ = UnList()
+    circ.append ( 'A' )
+    circ.append ( 'B' )
+    circ.append ( 'C' )
+    circ.append ( 'D' )
+    circ.append ( 'E' )
+    circ.append ( 'C' )
+
+    print( circ.findStartOfLoop() )
+    return
+
 if __name__ == "__main__":
     # p_2_1()
     # p_2_2()
     # p_2_3()
     # p_2_4()
     # p_2_5_v1()
-    p_2_5_v2()
+    # p_2_5_v2()
+    p_2_6()
