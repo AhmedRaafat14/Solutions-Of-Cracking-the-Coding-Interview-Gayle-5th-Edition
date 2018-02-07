@@ -17,7 +17,6 @@ class BinarySearchTree:
         else:
             self.right_child  =  BinarySearchTree(data)
 
-
     # check if this node value based in BST or not
     def find(self, data):
         if data < self.data and self.left_child:
