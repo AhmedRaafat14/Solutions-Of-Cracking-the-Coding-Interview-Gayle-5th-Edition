@@ -47,10 +47,10 @@ class BinarySearchTree:
                 self.clear()
 
             # 2: if node has at least one child left or right
-            elif self.left_child and not self.right_child and self == parent.right_child:
+            elif self.left_child and not self.right_child and self == parent.left_child:
                 parent.left_child = self.left_child
                 self.clear()
-            elif self.left_child and not self.right_child and self == parent.left_child:
+            elif self.left_child and not self.right_child and self == parent.right_child:
                 parent.right_child = self.left_child
                 self.clear()
             elif not self.left_child and self.right_child and self == parent.left_child:
