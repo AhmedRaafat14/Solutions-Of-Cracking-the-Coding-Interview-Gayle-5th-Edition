@@ -1,34 +1,37 @@
 from Chapter_4.BinaryTree import BinaryTree
-from Chapter_4.BinarySearchTree import BinarySearchTree
-
-bst = BinarySearchTree(50)
-
-bst.insert(21)
-bst.insert(76)
-bst.insert(4)
-bst.insert(32)
-bst.insert(64)
-bst.insert(52)
-bst.insert(100)
-
-# bst.pre_order()
-print(bst.pre_order())
-bst.remove(76, None)
-print(bst.pre_order())
+# from Chapter_4.BinarySearchTree import BinarySearchTree
+#
+# bst = BinarySearchTree(50)
+#
+# bst.insert(21)
+# bst.insert(76)
+# bst.insert(4)
+# bst.insert(32)
+# bst.insert(64)
+# bst.insert(52)
+# bst.insert(100)
+#
+# # bst.pre_order()
+# print(bst.pre_order())
+# bst.remove(76, None)
+# print(bst.pre_order())
 # print( bst.find(100) )
 
 
-# a_n = BinaryTree(1)
-# a_n.insert_left(2)
-# a_n.insert_right(5)
-#
-# b_n = a_n.left_child
-# b_n.insert_right(4)
-# b_n.insert_left(3)
-#
-# c_n = a_n.right_child
-# c_n.insert_left(6)
-# c_n.insert_right(7)
+a_n = BinaryTree(1)
+a_n.insert_left(2)
+a_n.insert_right(5)
+
+b_n = a_n.left_child
+b_n.insert_right(4)
+b_n.insert_left(3)
+
+c_n = a_n.right_child
+c_n.insert_left(6)
+c_n.insert_right(7)
+
+print( *a_n.dfs(), sep='----' )
+print( *a_n.pre_order(), sep='----' )
 #
 # d_n = b_n.right_child
 # e_n = c_n.left_child
@@ -46,8 +49,8 @@ print(bst.pre_order())
 # a_n.post_order()
 
 # print( *a_n.pre_order(), sep='---' )
-# print( *a_n.in_order(), sep='---' )
-# print( *a_n.post_order(), sep='---' )
+print( *a_n.in_order(), sep='----' )
+print( *a_n.post_order(), sep='----' )
 
 
 

@@ -242,10 +242,11 @@ class AVLTree():
 
         if node.right.node:
             self.traverse(node.right.node, level + 1)
-            # print( ('\t' * level), '   /')
+            print( '\t' * level, '   /')
 
-        print( 'level: '+ str(level) + '->' + str(node.data) )
+        # print( 'level: '+ str(level) + '->' + str(node.data) )
+        print( '\t' * level, node.data )
 
         if node.left.node:
-            # print ( ('\t' * level) , '   \\' )
+            print ( '\t' * level , '   \\' )
             self.traverse ( node.left.node , level + 1 )

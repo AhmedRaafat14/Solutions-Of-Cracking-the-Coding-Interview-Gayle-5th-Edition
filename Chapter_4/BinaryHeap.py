@@ -60,12 +60,21 @@ class BinaryHeap:
             self.perlocateDown(i)
             i -= 1
 
+    def traverse(self):
+        return self.heap
+
 
 bh = BinaryHeap()
 bh.buildHeap([9,5,6,2,3])
 
-print(bh.delMinChild())
-print(bh.delMinChild())
-print(bh.delMinChild())
-print(bh.delMinChild())
-print(bh.delMinChild())
+print( *bh.traverse() )
+bh.insert(4)
+print( *bh.traverse() )
+
+# print( *bh.traverse() )
+
+# print(bh.delMinChild())
+# print(bh.delMinChild())
+# print(bh.delMinChild())
+# print(bh.delMinChild())
+# print(bh.delMinChild())

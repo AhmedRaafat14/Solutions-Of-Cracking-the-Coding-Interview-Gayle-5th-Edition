@@ -74,16 +74,18 @@ class BinarySearchTree:
             return self.left_child.find_min()
         return self.data
 
-    def pre_order(self, nodes = []):
-        if not nodes:
+    def pre_order(self):
+        if not self:
             nodes = []
 
+        nodes = [ ]
         nodes.append( self.data )
         # print(self.data)
 
         if self.left_child:
-            self.left_child.pre_order( nodes )
+            self.left_child.pre_order( )
 
         if self.right_child:
-            self.right_child.pre_order( nodes )
+            self.right_child.pre_order( )
+
         return nodes

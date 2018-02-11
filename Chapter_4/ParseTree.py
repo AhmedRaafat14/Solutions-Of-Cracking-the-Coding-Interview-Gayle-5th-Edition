@@ -10,7 +10,7 @@ def buildParseTree(exp):
     current = exp_tree
     for ch in exp_lis:
         # if current token is '(', add new node as left child for current
-        # and omve to left child
+        # and move to left child
         if ch == '(':
             current.insert_left('')
             p_st.push(current)

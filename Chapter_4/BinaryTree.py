@@ -28,48 +28,77 @@ class BinaryTree:
         return
 
     ''' Imlment DFS types: pre_order(), in_order() and post_order() '''
-    def pre_order(self, nodes = []):
-        # if not nodes:
-        #     nodes = []
+    def dfs(self):
+        nodes = []
+        if self:
+            nodes.append( self.data )
+            if self.left_child:
+                nodes.extend( self.left_child.dfs() )
 
-        # nodes.append( self.data )
-        print(self.data)
+            if self.right_child:
+                nodes.extend( self.right_child.dfs() )
 
-        if self.left_child:
-            self.left_child.pre_order( nodes )
-
-        if self.right_child:
-            self.right_child.pre_order( nodes )
         return nodes
 
-    def in_order(self, nodes = []):
-        # if not nodes:
-        #     nodes = []
+    def pre_order(self):
+        if not self:
+            nodes = []
+
+        nodes = []
+        nodes.append( self.data )
+        # print(self.data)
 
         if self.left_child:
-            self.left_child.in_order( nodes )
-
-        print ( self.data )
-        # nodes.append( self.data )
+            l = self.left_child.pre_order( )
+            for el in l:
+                nodes.append(el)
 
         if self.right_child:
-            self.right_child.in_order ( nodes )
+            r = self.right_child.pre_order( )
+            for el in r:
+                nodes.append(el)
 
-        # return nodes
+        return nodes
 
-    def post_order(self, nodes = []):
-        # if not nodes:
-        #     nodes = []
+    def in_order(self):
+        if not self:
+            nodes = []
+
+        nodes = []
+        if self.left_child:
+            l = self.left_child.in_order( )
+            for el in l:
+                nodes.append(el)
+
+        # print ( self.data )
+        nodes.append( self.data )
+
+        if self.right_child:
+            r = self.right_child.in_order ( )
+            for el in r:
+                nodes.append(el)
+
+        return nodes
+
+    def post_order(self):
+        if not self:
+            nodes = []
+
+        nodes = []
 
         if self.left_child:
-            self.left_child.post_order( nodes )
+            l = self.left_child.post_order( )
+            for el in l:
+                nodes.append(el)
 
         if self.right_child:
-            self.right_child.post_order ( nodes )
+            r = self.right_child.post_order ( )
+            for el in r:
+                nodes.append(el)
 
-        print(self.data)
-        # nodes.append( self.data )
-        # return nodes
+        # print(self.data)
+        nodes.append( self.data )
+        return nodes
 
     # if tree consist of expersion this function help to eval this exp
     def post_oper_order(self):
@@ -101,7 +130,6 @@ class BinaryTree:
             exp = exp + str ( self.data )
             exp = exp + lr + ')'
         return exp
-
 
     ''' Implment BFS '''
     def BFS(self):
