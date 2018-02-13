@@ -30,8 +30,8 @@ class BinarySearchTree:
 
         return nodes
 
-
-def convertSortedListToBST(arr):
+###### Approach 1 ############
+def convertSortedListToBST_1(arr):
     if len(arr) == 0:
         return None
 
@@ -39,11 +39,28 @@ def convertSortedListToBST(arr):
 
     root = BinarySearchTree( arr[mid] )
 
-    root.left_child  = convertSortedListToBST( arr[:mid] )
-    root.right_child = convertSortedListToBST( arr[mid + 1:] )
+    root.left_child  = convertSortedListToBST_1( arr[:mid] )
+    root.right_child = convertSortedListToBST_1( arr[mid + 1:] )
 
     return root
 
-bst = convertSortedListToBST( [1, 2, 3, 4, 5, 6, 7] )
+###### Approach 2 ############
+def convertSortedListToBST_2(arr, start, end):
+    if start > end:
+        return None
 
-print( *bst.pre_order(), sep=' ---->' )
+    mid = (start + end) // 2
+
+    root = BinarySearchTree( arr[mid] )
+
+    root.left_child  = convertSortedListToBST_2( arr, start, mid - 1 )
+    root.right_child = convertSortedListToBST_2( arr, mid + 1, end )
+
+    return root
+
+nums = [1, 2, 3, 4, 5, 6, 7]
+bst_1 = convertSortedListToBST_1( nums )
+bst_2 = convertSortedListToBST_2(nums, 0, len(nums) - 1)
+
+print( *bst_1.pre_order(), sep=' ---->' )
+print( *bst_2.pre_order(), sep=' ---->' )
