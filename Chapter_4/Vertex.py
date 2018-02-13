@@ -21,6 +21,9 @@ class Vertex:
         """
         return list(self.neighbors.keys())
 
+    def getEdges(self):
+        return self.neighbors
+
     def getKey(self):
         """
         :return: current vertext key 

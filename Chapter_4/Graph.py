@@ -41,9 +41,9 @@ class Graph:
 
     def getVertices(self):
         """
-        :return: graph vertices 
+        :return: list graph vertices
         """
-        return self.vertixList.keys()
+        return list(self.vertixList.keys())
 
     def __contains__(self, item):
         """

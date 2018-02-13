@@ -20,8 +20,10 @@ g.addEdge(5,2,1)
 
 # print( 2 in g )
 # print( g.getVertices() )
-# g_vx = g.getVertex(0)
-# print( str(g_vx.getKey()) + '  is ConnectedTo:  ' + str(g_vx.getNeighbors()) )
+for i in range(6):
+    g_vx = g.getVertex(i)
+    # print( str(g_vx.getKey()) + '  is ConnectedTo:  ' + str(g_vx.getNeighbors()) )
+    print ( str ( g_vx.getKey ( ) ) + '  is ConnectedTo: {vertex: edge weight/cost}  ' + str ( g_vx.getEdges ( ) ) )
 #
 # for v in g:
 #     # print(v)
