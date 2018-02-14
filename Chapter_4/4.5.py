@@ -1,3 +1,8 @@
+"""
+Implement a function to check if a binary tree is a binary 
+    search tree.
+"""
+
 class BinaryTree:
     def __init__(self, val):
         self.data = val
