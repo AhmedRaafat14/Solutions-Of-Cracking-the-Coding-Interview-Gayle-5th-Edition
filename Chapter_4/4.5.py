@@ -24,20 +24,33 @@ class BinaryTree:
 
         return
 
-    def isBST(self):
-        if not self or not self.left_child or not self.right_child:
-            return None
-
+    
+    def pre_order(self):
+        if not self:
+            nodes = []
+        # print(self.data)
+        nodes = []
         if self.left_child:
-            self.left_child.isBST( )
-
-        if self.left_child.data > self.data or self.data >= self.right_child.data:
-            return False
-
+            l = self.left_child.pre_order( )
+            for el in l:
+                nodes.append(el)
+        
+        nodes.append( self.data )
+        
         if self.right_child:
-            self.right_child.isBST ( )
+            r = self.right_child.pre_order( )
+            for el in r:
+                nodes.append(el)
 
-        return True
+        return nodes
+
+def isBST(root, low, high):
+        if not root:
+            return True
+        
+        return low <= root.data and high > root.data and \
+                    isBST(root.left_child, low, root.data ) and \
+                    isBST(root.right_child, root.data, high )
 
 if __name__ == "__main__":
     """
@@ -49,37 +62,18 @@ if __name__ == "__main__":
                /   \   /   \
               3     4  6    7
     """
-    a_n = BinaryTree(1)
+    a_n = BinaryTree(4)
     a_n.insert_left(2)
-    a_n.insert_right(5)
+    a_n.insert_right(6)
 
     b_n = a_n.left_child
-    b_n.insert_right(4)
     b_n.insert_left(3)
+    b_n.insert_right(1)
 
     c_n = a_n.right_child
-    c_n.insert_left(6)
+    c_n.insert_left(5)
     c_n.insert_right(7)
-
-    """
-                     5
-                   /   \
-                  /     \
-                 3       8
-                / \     / \
-               /   \   /   \
-              2     4  6    7
-    """
-    # a_n = BinaryTree ( 5 )
-    # a_n.insert_left ( 3 )
-    # a_n.insert_right ( 8 )
-    #
-    # b_n = a_n.left_child
-    # b_n.insert_right ( 2 )
-    # b_n.insert_left ( 4 )
-    #
-    # c_n = a_n.right_child
-    # c_n.insert_left ( 6 )
-    # c_n.insert_right ( 7 )
-
-    print( a_n.isBST() )
+    
+    print( *a_n.pre_order(), sep=' ---> ' )
+    
+    print( isBST(a_n, float('-inf'), float('inf') ) )
