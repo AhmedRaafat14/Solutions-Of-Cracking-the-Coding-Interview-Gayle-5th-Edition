@@ -54,13 +54,21 @@ def isBST(root, low, high):
 
 if __name__ == "__main__":
     """
-                     1
+                     4
                    /   \
                   /     \
-                 2       5
+                 2       6   ===============> True
                 / \     / \
                /   \   /   \
-              3     4  6    7
+              1     3  5    7
+              
+                     4
+                   /   \
+                  /     \
+                 2       6   ===============> False
+                / \     / \
+               /   \   /   \
+              3     1  5    7
     """
     a_n = BinaryTree(4)
     a_n.insert_left(2)
@@ -69,6 +77,8 @@ if __name__ == "__main__":
     b_n = a_n.left_child
     b_n.insert_left(3)
     b_n.insert_right(1)
+#     b_n.insert_left(1)
+#     b_n.insert_right(3)
 
     c_n = a_n.right_child
     c_n.insert_left(5)
