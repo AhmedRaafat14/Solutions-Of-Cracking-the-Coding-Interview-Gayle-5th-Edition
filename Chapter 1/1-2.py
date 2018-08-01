@@ -1,16 +1,22 @@
-'''
+"""
 Implement a function void reverse(char* str) in C or C++ which reverses a null-
 terminated string
-'''
+"""
 
-s = input()
 
-# First approach
-# rev_s = ""
-# for i in range(len(s) - 1, -1, -1):
-#     rev_s += s[i]
-#
-# print(rev_s)
+# Using python benefits =xD
+def reverse_s(s):
+    return s[::-1]
 
-# Second approach
-print(s[::-1])
+
+# Using Naive solution
+def reverse_s_naive(s):
+    new_s = ""
+    for ch in s:
+        new_s = ch + new_s
+    return new_s
+
+
+if __name__ == "__main__":
+    print(reverse_s("test"))
+    print(reverse_s("car"))
