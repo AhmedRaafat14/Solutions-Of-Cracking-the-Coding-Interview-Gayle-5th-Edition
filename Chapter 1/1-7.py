@@ -22,11 +22,8 @@ def change_to_zero(matrix):
             if row in zero_rows or col in zero_cols:
                 matrix[row][col] = 0
 
-    # for row in range(n):
-    #     for col in zero_cols:
-    #         matrix[row][col] = 0
-
     return matrix
+
 
 if __name__ == "__main__":
     print( change_to_zero([[1, 2, 3], [4, 0, 5], [6, 7, 8]]) )
