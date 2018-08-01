@@ -5,13 +5,15 @@ a rotation of si using only one call to isSubstring (e.g.,"waterbottle"is a rota
 tion of "erbottlewat")
 '''
 
+
 def is_rotation(s1, s2):
     if len(s1) == len(s2):
         return False
 
-    return isSubstring(s1+s1, s2)
+    return is_substring(s1 + s1, s2)
 
-def isSubstring(s1, s2):
+
+def is_substring(s1, s2):
     # Fastest solution
     # return s2 in s1
 
@@ -29,5 +31,6 @@ def isSubstring(s1, s2):
         return True
     return False
 
+
 if __name__ == "__main__":
-    print( is_rotation('waterbottle', 'erbottlewa') )
+    print(is_rotation('waterbottle', 'erbottlewa'))
