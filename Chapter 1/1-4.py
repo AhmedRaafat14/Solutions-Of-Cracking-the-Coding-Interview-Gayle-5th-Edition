@@ -1,29 +1,33 @@
-'''
-Write a method to replace all spaces in a string with'%20'. You may assume that
-the string has sufficient space at the end of the string to hold the additional
-characters, and that you are given the "true" length of the string. (Note: if imple-
-menting in Java, please use a character array so that you can perform this opera-
-tion in place.)
-EXAMPLE
-Input:
-"Mr John Smith
-Output: "Mr%20Dohn%20Smith"
-'''
+"""
+Write a method to replace all spaces in a string with'%20'.
 
-S = input()
+EXAMPLE
+Input:  "Mr John Smith "
+Output: "Mr%20John%20Smith"
+"""
+
 
 # Approach 1 using String manipulation methods
-# S = S.rstrip()
-# print( S.replace(' ', '%20') )
+def replace_space(s):
+    return (s.rstrip()).replace(" ", '%20')
+
 
 # Approach 2 without using String manipulation methods
-S_li = [ch for ch in S]
-delm = ''
+def replace_spaces(s):
+    s_li = list(s)
+    delm = ''
 
-for i in range(len(S) - 1, -1, -1):
-    if S_li[i].isalpha() and delm == '':
-        delm = '%20'
-    if S_li[i] == ' ':
-        S_li[i] = delm
+    for i in range(len(s) -1, -1, -1):
+        if s_li[i].isalpha() and delm == '':
+            delm = '%20'
 
-print( "".join(S_li) )
+        if s_li[i] == " ":
+            s_li[i] = delm
+
+    return "".join(s_li)
+
+
+if __name__ == "__main__":
+    print(replace_space("Mr John Smith"))
+
+    print(replace_spaces("Mr John Smith"))
